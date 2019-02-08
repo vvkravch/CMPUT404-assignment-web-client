@@ -236,6 +236,7 @@ class TestHTTPClient(unittest.TestCase):
     
     def testPOST(self):
         '''Test HTTP POST with an echo server'''
+        #print ("BEGIN THE WORST TEST")
         MyHTTPHandler.post = echo_post
         http = httpclass.HTTPClient()
         path = "post_echoer"
@@ -250,11 +251,13 @@ class TestHTTPClient(unittest.TestCase):
         self.assertTrue(req.code == 200)
         print("Test Post Body: [%s]" % req.body)
         outargs = json.loads(req.body)
-        print(outargs.__class__)
+        #print("THE OUTRAGS")
+        print(outargs)
         for key in args:
             self.assertTrue(args[key] == outargs[key][0], "Key [%s] not found" % key)
         for key in outargs:
             self.assertTrue(args[key] == outargs[key][0], "Key [%s] not found" % key)
+        #print ("END THE WORST TEST")
 
     @classmethod
     def tearDownClass(self):        

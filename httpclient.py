@@ -117,7 +117,7 @@ class HTTPClient(object):
         print ("\n")
         code=self.get_code(data)
         body=self.get_body(data)
-        print (body)
+        #print (body)
         
         return HTTPResponse(code, body)
 
@@ -149,7 +149,7 @@ class HTTPClient(object):
         data=self.recvall(self.socket)
         self.close()
         #print("data received!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!")
-        #print (data)
+        print (data)
         code=self.get_code(data)
         body=self.get_body(data)        
         #code = 500
